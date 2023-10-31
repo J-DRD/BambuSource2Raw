@@ -1,0 +1,30 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: configure
+      run: ./configure
+    - name: Makefile Build Target Finder
+  # You may pin to the exact commit or the version.
+  # uses: meihei3/makefile-build-target-finder@70821348db734ffaca6051e9885e260f708b9b0f
+      uses: meihei3/makefile-build-target-finder@v0.1.0
+      with:
+        # The Makefile to find build targets from
+        makefile: BambuSource2Raw/Makefile.linux # optional, default is Makefile
+    - name: make
+      run: make
+    - name: make check
+      run: make check
+    - name: make distcheck
+      run: make distcheck
