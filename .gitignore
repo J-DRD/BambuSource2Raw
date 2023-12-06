@@ -1,0 +1,12 @@
+_linux-build\*
+linux-build\*
+win-build\*
+*.conf
+*.stl
+*.zip
+rtsp-*.yml
+*.tar.gz
+*.tar
+*.xz
+*.wim
+*.7z
